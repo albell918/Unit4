@@ -64,4 +64,4 @@ public class Main {
 //Lines with ''ERROR'' by lines method: 361
 //Operation with lines method took 1708ms
 //----------------------------------------------
-// So, File.lines is the fastest method for filtering large TXT file
+// So, File.lines is faster method for filtering large TXT file than String.split
