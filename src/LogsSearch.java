@@ -61,8 +61,8 @@ public class LogsSearch {
 
         String fileOutput = "E:/LogsWith" +  "ERROR" + dateAsString + ".log";
         Files.write(Paths.get(fileOutput), str.getBytes(StandardCharsets.UTF_8));
-        long bytes = Files.size(Paths.get(fileOutput));
-        System.out.println("Size of Error logs file for"+fileOutput+" "+bytes/8000.0+"Kb");
+//        long bytes = Files.size(Paths.get(fileOutput));
+//        System.out.println("Size of Error logs file for"+fileOutput+" "+bytes/8000.0+"Kb");
 
 
     }

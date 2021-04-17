@@ -70,7 +70,16 @@ public class Main {
 
         finish = LocalDateTime.now();
 
-        System.out.println("Time for extracting ERROR logs for 5 days :"+ChronoUnit.MILLIS.between(start, finish)+"ms");
+        System.out.println("Time for extracting ERROR logs for 5 days :" + ChronoUnit.MILLIS.between(start, finish) + "ms");
+
+        System.out.println("----------------------------------------------");
+
+        System.out.println("Task3 - Multithreading:");
+
+        for (int i = 0; i < 5; i++) {
+            new MyThread(date.plusDays(i), "E:/logs402.txt").start();
+
+        }
 
     }
 
@@ -78,22 +87,31 @@ public class Main {
 }
 
 
-//Total number of lines :2845607
-//Number of ERROR Logs :361
-//Operation with array of Strings took 3277ms
-//----------------------------------------------
-//Lines with ''ERROR'' by readAllLines: 361
-//Operation with readAllLines took 1718ms
-//----------------------------------------------
-//Lines with ''ERROR'' by lines method: 361
-//Operation with lines method took 1708ms
-//----------------------------------------------
-// So, File.lines is faster method for filtering large TXT file than String.split
-//----------------------------------------------
-//Task 2:
-//Size of Error logs file forE:/LogsWithERROR2020-02-14.log 102.963125Kb
-//Size of Error logs file forE:/LogsWithERROR2020-02-15.log 54.334625Kb
-//Size of Error logs file forE:/LogsWithERROR2020-02-16.log 2.856375Kb
-//Size of Error logs file forE:/LogsWithERROR2020-02-17.log 111.767125Kb
-//Size of Error logs file forE:/LogsWithERROR2020-02-18.log 108.363625Kb
-//Time for extracting ERROR logs for 5 days :8089ms
+//        Total number of lines :2845607
+//        Number of ERROR Logs :361
+//        Operation with array of Strings took 3177ms
+//        ----------------------------------------------
+//        Lines with ''ERROR'' by readAllLines: 361
+//        Operation with readAllLines took 1714ms
+//        ----------------------------------------------
+//        Lines with ''ERROR'' by lines method: 361
+//        Operation with lines method took 1579ms
+//        ----------------------------------------------
+//        Task 2:
+//        Time for extracting ERROR logs for 5 days :7494ms
+//        ----------------------------------------------
+//        Task3 - Multithreading:
+//        Thread-2 has been finished at 2021-04-17T15:54:21.389710800
+//        Thread-2 DURATION is  1669
+//        Thread-1 has been finished at 2021-04-17T15:54:21.528632
+//        Thread-1 DURATION is  1808
+//        Thread-3 has been finished at 2021-04-17T15:54:22.081287100
+//        Thread-3 DURATION is  2361
+//        Thread-0 has been finished at 2021-04-17T15:54:22.107275
+//        Thread-0 DURATION is  2390
+//        Thread-4 has been finished at 2021-04-17T15:54:22.132253700
+//        Thread-4 DURATION is  2365
+//
+//Conclusion: By paralleling tasks on threads, we can greatly reduce time, required for task execution.
+//In this case from 7.5 to 2.5 seconds.
+// However, threads are chaotic and the order in which they complete their work cannot be predicted.
